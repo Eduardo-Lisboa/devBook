@@ -102,3 +102,21 @@ func (u Usuarios) Deletar(ID uint64) error {
 
 	return nil
 }
+
+func (u Usuarios) BuscarPorEmail(email string) (models.Usuario, error) {
+	linha, erro := u.db.Query("select id, senha, from usuarios where email = ?", email)
+	if erro != nil {
+		return models.Usuario{}, erro
+	}
+	defer linha.Close()
+
+	var usuario models.Usuario
+
+	if linha.Next() {
+		if erro = linha.Scan(&usuario.ID, &usuario.Senha); erro != nil {
+			return models.Usuario{}, erro
+		}
+	}
+
+	return usuario, nil
+}
