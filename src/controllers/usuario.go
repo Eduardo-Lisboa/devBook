@@ -26,7 +26,7 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if erro = usuario.Preparar(); erro != nil {
+	if erro = usuario.Preparar("cadastrar"); erro != nil {
 		respostas.Erro(w, http.StatusBadRequest, erro)
 		return
 	}
@@ -113,7 +113,7 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 		respostas.Erro(w, http.StatusBadRequest, erro)
 		return
 	}
-	if erro = usuario.Preparar(); erro != nil {
+	if erro = usuario.Preparar("atualizar"); erro != nil {
 		respostas.Erro(w, http.StatusBadRequest, erro)
 		return
 	}
