@@ -8,7 +8,10 @@ require (
 	github.com/joho/godotenv v1.4.0
 )
 
+require github.com/golang-jwt/jwt/v4 v4.4.3 // indirect
+
 require (
 	github.com/badoux/checkmail v1.2.1 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	golang.org/x/crypto v0.5.0
 )
