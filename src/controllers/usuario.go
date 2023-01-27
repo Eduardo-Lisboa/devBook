@@ -150,5 +150,5 @@ func DeletarsUsuario(w http.ResponseWriter, r *http.Request) {
 		respostas.Erro(w, http.StatusInternalServerError, erro)
 		return
 	}
-	respostas.JSON(w, http.StatusNoContent, nil)
+	respostas.JsonMensagem(w, http.StatusNoContent, "Usuário deletado com sucesso")
 }

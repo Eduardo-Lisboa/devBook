@@ -18,3 +18,11 @@ func Erro(w http.ResponseWriter, statusCode int, erro error) {
 		Erro: erro.Error(),
 	})
 }
+
+func JsonMensagem(w http.ResponseWriter, statusCode int, mensagem string) {
+	JSON(w, statusCode, struct {
+		Mensagem string `json:"mensagem"`
+	}{
+		Mensagem: mensagem,
+	})
+}	
